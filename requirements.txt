@@ -1,7 +1,5 @@
 joblib
 pandas
-matplotlib
 numpy
 streamlit
-sklearn
 pickle
