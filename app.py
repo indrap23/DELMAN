@@ -27,7 +27,7 @@ provinsi = st.selectbox('Pilih Provinsi', matriks_isi.index)
 sektor = st.selectbox('Pilih Sektor', matriks_isi.columns)
 
 # Input untuk nilai baru
-nilai_baru = st.number_input('Masukkan Nilai Baru', value=float(matriks_isi.loc[provinsi, sektor]))
+nilai_baru = st.number_input('Masukkan Nilai Baru (dalam juta Rupiah)', value=float(matriks_isi.loc[provinsi, sektor]))
 
 # Tombol untuk memperbarui nilai
 if st.button('Add'):
