@@ -1,26 +1,26 @@
 import streamlit as st
 import pandas as pd
 import numpy as np
-import pickle
+import joblib
 
 st.title('Input Data Nilai berdasarkan Provinsi dan Sektor')
 
 # Fungsi untuk membaca file pickle
-def load_pickle(file):
+def load_data(file):
     with open(file, 'rb') as f:
-        data = pickle.load(f)
+        data = joblib.load(f)
     return data
 
 # Memuat data dari file pickle hanya sekali dan menyimpannya di session state
 if 'matriks_isi' not in st.session_state:
-    st.session_state.matriks_isi = load_pickle("df_matriks.pkl")
+    st.session_state.matriks_isi = load_data("df_matriks.pkl")
 
 # Mengambil DataFrame dari session state
 matriks_isi = st.session_state.matriks_isi
 
-inverse_matrix = load_pickle('inverse_matrix.pkl')
-MTK = load_pickle('MTK.pkl')
-MUG = load_pickle('MUG.pkl')
+inverse_matrix = load_data('inverse_matrix.pkl')
+MTK = load_data('MTK.pkl')
+MUG = load_data('MUG.pkl')
 
 # Dropdown untuk memilih provinsi dan sektor
 provinsi = st.selectbox('Pilih Provinsi', matriks_isi.index)
